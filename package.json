@@ -12,14 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tweenjs/tween.js": "^17.4.0",
-    "glslify": "^7.0.0",
     "three": "^0.106.2"
   },
   "devDependencies": {
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2",
-    "webpack-glsl-loader": "^1.0.1"
+    "webpack-dev-server": "^3.7.2"
   }
 }

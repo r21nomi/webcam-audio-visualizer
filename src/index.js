@@ -1,9 +1,7 @@
 /* jshint node: true */
 /* globals THREE */
-/* globals TWEEN */
 
 window.THREE = require("three");
-window.TWEEN = require("@tweenjs/tween.js");
 
 let scene, renderer, camera, clock, width, height, video;
 let particles, videoWidth, videoHeight;
@@ -176,8 +174,6 @@ const getFrequencyRangeValue = (data, _frequencyRange) => {
 };
 
 const draw = () => {
-    // TWEEN.update(t);
-
     clock.getDelta();
     const time = clock.elapsedTime;
 
@@ -254,25 +250,6 @@ const draw = () => {
 
     requestAnimationFrame(draw);
 };
-
-// const tween = (from, to, delay) => {
-//     const position1 = {
-//         value: from
-//     };
-//     new TWEEN.Tween(position1)
-//         .delay(delay)
-//         .to({
-//             value: to
-//         }, 1000)
-//         .easing(TWEEN.Easing.Exponential.InOut)
-//         .onUpdate(() => {
-//             offset.value = position1.value;
-//         })
-//         .onComplete(() => {
-//             tween(to, from, 3000);
-//         })
-//         .start();
-// };
 
 const showAlert = () => {
     document.getElementById("message").classList.remove("hidden");
