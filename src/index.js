@@ -5,9 +5,6 @@ window.THREE = require("three");
 
 let scene, renderer, camera, clock, width, height, video;
 let particles, videoWidth, videoHeight;
-let offset = {
-    value: 1.5,
-};
 
 // audio
 let audio, analyser;
@@ -34,8 +31,8 @@ const init = () => {
     onResize();
 
     if (hasGetUserMedia()) {
-        initVideo();
         initAudio();
+        initVideo();
     } else {
         showAlert();
     }
@@ -127,15 +124,15 @@ const createParticles = () => {
     scene.add(particles);
 };
 
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
 const getImageData = (image) => {
-    const canvas = document.createElement("canvas");
     const w = image.videoWidth;
     const h = image.videoHeight;
 
     canvas.width = w;
     canvas.height = h;
-
-    const ctx = canvas.getContext("2d");
 
     ctx.translate(w, 0);
     ctx.scale(-1, 1);
@@ -143,13 +140,6 @@ const getImageData = (image) => {
     ctx.drawImage(image, 0, 0);
 
     return ctx.getImageData(0, 0, w, h);
-};
-
-let max = -1;
-let min = -1;
-
-const map = (value, beforeMin, beforeMax, afterMin, afterMax) => {
-    return afterMin + (afterMax - afterMin) * ((value - beforeMin) / (beforeMax - beforeMin));
 };
 
 /**
@@ -184,7 +174,6 @@ const draw = () => {
         // analyser.getFrequencyData() would be an array with a size of half of fftSize.
         const data = analyser.getFrequencyData();
 
-        const freq = analyser.getAverageFrequency() / 255;
         const bass = getFrequencyRangeValue(data, frequencyRange.bass);
         const mid = getFrequencyRangeValue(data, frequencyRange.mid);
         const treble = getFrequencyRangeValue(data, frequencyRange.treble);
@@ -192,19 +181,6 @@ const draw = () => {
         r = bass;
         g = mid;
         b = treble;
-
-        if (max < 0) {
-            max = freq;
-        } else if (freq > max) {
-            max = freq;
-        }
-        if (min < 0) {
-            min = freq;
-        } else if (freq < min) {
-            min = freq;
-        }
-
-        offset.value = map(freq, min, max, 0.1, 0.5);
     }
 
     // video
@@ -213,7 +189,7 @@ const draw = () => {
         particles.material.color.g = 1 - g;
         particles.material.color.b = 1 - b;
 
-        const density = 1;
+        const density = 2;
         const imageData = getImageData(video);
         for (let i = 0, length = particles.geometry.vertices.length; i < length; i++) {
             const particle = particles.geometry.vertices[i];
@@ -240,11 +216,6 @@ const draw = () => {
         }
         particles.geometry.verticesNeedUpdate = true;
     }
-
-    // const t2 = time * 0.5;
-    // camera.position.x = 100 * Math.cos(t2);
-    // camera.position.y = 100 * Math.sin(t2);
-    // camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     renderer.render(scene, camera);
 
