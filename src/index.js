@@ -4,7 +4,10 @@
 window.THREE = require("three");
 
 let scene, renderer, camera, clock, width, height, video;
-let particles, videoWidth, videoHeight;
+let particles, videoWidth, videoHeight, imageCache;
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
 
 // audio
 let audio, analyser;
@@ -124,10 +127,11 @@ const createParticles = () => {
     scene.add(particles);
 };
 
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
+const getImageData = (image, useCache) => {
+    if (useCache && imageCache) {
+        return imageCache;
+    }
 
-const getImageData = (image) => {
     const w = image.videoWidth;
     const h = image.videoHeight;
 
@@ -138,8 +142,9 @@ const getImageData = (image) => {
     ctx.scale(-1, 1);
 
     ctx.drawImage(image, 0, 0);
+    imageCache = ctx.getImageData(0, 0, w, h);
 
-    return ctx.getImageData(0, 0, w, h);
+    return imageCache;
 };
 
 /**
@@ -163,7 +168,7 @@ const getFrequencyRangeValue = (data, _frequencyRange) => {
     return total / numFrequencies / 255;
 };
 
-const draw = () => {
+const draw = (t) => {
     clock.getDelta();
     const time = clock.elapsedTime;
 
@@ -190,11 +195,12 @@ const draw = () => {
         particles.material.color.b = 1 - b;
 
         const density = 2;
-        const imageData = getImageData(video);
+        const useCache = parseInt(t) % 2 === 0;  // To reduce CPU usage.
+        const imageData = getImageData(video, useCache);
         for (let i = 0, length = particles.geometry.vertices.length; i < length; i++) {
             const particle = particles.geometry.vertices[i];
             if (i % density !== 0) {
-                particle.z = 1000;
+                particle.z = 10000;
                 continue;
             }
             let index = i * 4;
