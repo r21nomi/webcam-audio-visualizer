@@ -81,8 +81,8 @@ const initAudio = () => {
     audio = new THREE.Audio(audioListener);
 
     const audioLoader = new THREE.AudioLoader();
-    // https://www.newgrounds.com/audio/listen/872056
-    audioLoader.load('asset/872056_Above-the-clouds.mp3', (buffer) => {
+    // https://www.newgrounds.com/audio/listen/232941
+    audioLoader.load('asset/232941_New.MP3', (buffer) => {
         audio.setBuffer(buffer);
         audio.setLoop(true);
         audio.setVolume(0.5);
