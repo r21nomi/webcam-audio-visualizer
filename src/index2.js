@@ -49,7 +49,15 @@ const init = () => {
 
     onResize();
 
-    if (hasGetUserMedia()) {
+    navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+        getUserMedia: (c) => {
+            return new Promise(function (y, n) {
+                (navigator.mozGetUserMedia || navigator.webkitGetUserMedia).call(navigator, c, y, n);
+            });
+        }
+    } : null);
+
+    if (navigator.mediaDevices) {
         initAudio();
         initVideo();
     } else {
@@ -76,19 +84,21 @@ const initVideo = () => {
         video: true,
         audio: false
     };
-    navigator.getUserMedia(option, (stream) => {
-        video.srcObject = stream;
-        video.addEventListener("loadeddata", () => {
-            videoWidth = video.videoWidth;
-            videoHeight = video.videoHeight;
+    navigator.mediaDevices.getUserMedia(option)
+        .then((stream) => {
+            video.srcObject = stream;
+            video.addEventListener("loadeddata", () => {
+                videoWidth = video.videoWidth;
+                videoHeight = video.videoHeight;
 
-            createParticles();
-            draw();
+                createParticles();
+                draw();
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            showAlert();
         });
-    }, (error) => {
-        console.log(error);
-        showAlert();
-    });
 };
 
 const initAudio = () => {
@@ -282,10 +292,6 @@ const draw = (t) => {
 
 const showAlert = () => {
     document.getElementById("message").classList.remove("hidden");
-};
-
-const hasGetUserMedia = () => {
-    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 };
 
 const onResize = () => {
