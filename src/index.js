@@ -25,7 +25,7 @@ const init = () => {
     scene.background = new THREE.Color(0x111111);
 
     renderer = new THREE.WebGLRenderer();
-    document.body.appendChild(renderer.domElement);
+    document.getElementById("content").appendChild(renderer.domElement);
 
     clock = new THREE.Clock();
 
@@ -47,6 +47,8 @@ const init = () => {
     } else {
         showAlert();
     }
+
+    draw();
 };
 
 const initCamera = () => {
@@ -77,7 +79,6 @@ const initVideo = () => {
                 videoHeight = video.videoHeight;
 
                 createParticles();
-                draw();
             });
         })
         .catch((error) => {
