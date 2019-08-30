@@ -1,13 +1,3 @@
-*How to use this template:*
-
-- The general styles for the demo page are in css/base.css and individual styles go into the css/demoN.css
-- The README.md should be used to add credits and licensing information of resources used
-- For writing the tutorial, take a look at some guidelines in article.html
-- Delete this 'how to' in the final version and leave the following (fill in title/description, credits and social links):
-
-
-
-
 # Webcam Audio Visualizer
 
 Demo for the tutorial on how to create a Three.js powered audio visualizer that takes input from the webcam.
@@ -20,7 +10,7 @@ Demo for the tutorial on how to create a Three.js powered audio visualizer that 
 
 ## Credits
 
-### Musics from Newgrounds.com
+### Music from Newgrounds.com
 ["Above the clouds" by ArcaneMusic](https://www.newgrounds.com/audio/listen/872056)  
 ["Title Wave" by Sike991](https://www.newgrounds.com/audio/listen/232941)
 
@@ -29,7 +19,7 @@ This resource can be used freely if integrated or build upon in personal or comm
 
 ## Misc
 
-Follow *Author*: [Twitter](), [Dribbble](), [Google+](), [GitHub]() 
+Follow Ryota: [Twitter](https://twitter.com/r21nomi), [GitHub](https://github.com/r21nomi) 
 
 Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [Google+](https://plus.google.com/101095823814290637419), [GitHub](https://github.com/codrops), [Pinterest](http://www.pinterest.com/codrops/), [Instagram](https://www.instagram.com/codropsss/)
 
