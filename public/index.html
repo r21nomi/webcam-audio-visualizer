@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Demoname | Demo 1 | Codrops</title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="author" content="Codrops"/>
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
-    <style>
-        body {
-            margin: 0;
-        }
 
-        .hidden {
-            display: none;
-        }
-    </style>
-    <script>document.documentElement.className = "js";
-    var supportsCssVars = function () {
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webcam Audio Visualizer | Demo 1 | Codrops</title>
+    <meta name="description" content="Demo of the tutorial on how to create a Three.js powered audio visualizer that takes input from the webcam." />
+    <meta name="keywords" content="three.js, audio visualizer, webcam, web development, javascript, webgl" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <script>
+    document.documentElement.className = "js";
+    var supportsCssVars = function() {
         var e, t = document.createElement("style");
         return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
     };
-    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-    <!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
+    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+    </script>
 </head>
+
 <body class="demo-1">
-<main>
-    <div class="message">Some message for mobile if needed.</div>
-    <div class="frame">
-        <div class="frame__title-wrap">
-            <h1 class="frame__title">Title</h1>
-            <p class="frame__tagline">Subtitle</a></p>
+    <main>
+        <div class="frame">
+            <div class="frame__title-wrap">
+                <h1 class="frame__title">Webcam Audio Visualizer</h1>
+                <span class="frame__info">Click to stop/start</span>
+            </div>
+            <div class="frame__links">
+                <a href="https://tympanus.net/Development/ImageTrailEffects/">Previous Demo</a>
+                <a href="https://tympanus.net/codrops/?p=42594">Article</a>
+                <a href="https://github.com/r21nomi/webcam-audio-visualizer">GitHub</a>
+            </div>
+            <div class="frame__demos">
+                <a href="index.html" class="frame__demo frame__demo--current">demo 1</a>
+                <a href="index2.html" class="frame__demo">demo 2</a>
+            </div>
         </div>
-        <a class="frame__github" href="">GitHub</a>
-        <div class="frame__links">
-            <a href="">Previous Demo</a>
-            <a href="">Article</a>
+        <div id="content" class="content">
+            <video id="video" class="hidden"></video>
+            <div id="message" class="hidden">Please allow camera access.</div>
         </div>
-        <div class="frame__demos">
-            <a href="index.html" class="frame__demo frame__demo--current">demo 1</a>
-            <a href="index2.html" class="frame__demo">demo 2</a>
-        </div>
-        <!-- Pater
-        <a class="pater" href="" rel="nofollow" onClick="recordOutboundLink(this, 'Outbound Links', 'CODEHERE');return false;">
-            <div class="pater__img"><div class="pater__img-inner"></div></div>
-            <h3 class="pater__title"></h3>
-            <p class="pater__description"></p>
-        </a>-->
-    </div>
-    <div id="content" class="content">
-        <!-- the content -->
-        <video id="video" class="hidden"></video>
-        <div id="message" class="hidden">Please allow camera access.</div>
-    </div>
-</main>
-<script src="index.js"></script>
+    </main>
+    <script src="index.js"></script>
 </body>
+
 </html>

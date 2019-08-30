@@ -8,17 +8,18 @@
 
 
 
-# webcam-audio-visualizer
+# Webcam Audio Visualizer
 
-*Description*, *author*
+Demo for the tutorial on how to create a Three.js powered audio visualizer that takes input from the webcam.
 
 ![Image Title](link)
 
-[Article on Codrops](https://tympanus.net/codrops/?p=)
+[Article on Codrops](https://tympanus.net/codrops/?p=42594)
 
-[Demo](http://tympanus.net/Development/.../)
+[Demo](http://tympanus.net/Tutorials/webcam-audio-visualizer/)
 
 ## Credits
+
 ### Musics from Newgrounds.com
 ["Above the clouds" by ArcaneMusic](https://www.newgrounds.com/audio/listen/872056)  
 ["Title Wave" by Sike991](https://www.newgrounds.com/audio/listen/232941)

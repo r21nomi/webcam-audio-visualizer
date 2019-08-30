@@ -38,7 +38,7 @@ const frequencyRange = {
 
 const init = () => {
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x111111);
+    scene.background = new THREE.Color(0x2d40f8);
 
     renderer = new THREE.WebGLRenderer();
     document.getElementById("content").appendChild(renderer.domElement);
@@ -154,7 +154,7 @@ const createParticles = () => {
     const colors = [];
 
     let colorsPerFace = [
-        "#FFFFFF", "#22FDEF", "#8747FE", "#2371FF"
+        "#ff4b78", "#16e36d", "#162cf8", "#2016e3"
     ];
 
     let count = 0;

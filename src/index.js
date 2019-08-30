@@ -119,7 +119,7 @@ const createParticles = () => {
     geometry.morphAttributes = {};  // This is necessary to avoid error.
     const material = new THREE.PointsMaterial({
         size: 1,
-        color: 0x66eedd,
+        color: 0xff3b6c,
         sizeAttenuation: false
     });
 
