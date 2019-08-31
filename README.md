@@ -8,6 +8,11 @@ Demo for the tutorial on how to create a Three.js powered audio visualizer that 
 
 [Demo](http://tympanus.net/Tutorials/webcam-audio-visualizer/)
 
+## Build and run
+
+```npm run-script build```
+```np start```
+
 ## Credits
 
 ### Music from Newgrounds.com
