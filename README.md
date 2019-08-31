@@ -11,7 +11,7 @@ Demo for the tutorial on how to create a Three.js powered audio visualizer that 
 ## Build and run
 
 ```npm run-script build```
-```np start```
+```np start``` 
 
 ## Credits
 
