@@ -9,6 +9,8 @@ let particles, videoWidth, videoHeight, imageCache;
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
+const classNameForLoading = "loading";
+
 // audio
 let audio, analyser;
 const fftSize = 2048;  // https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/fftSize
@@ -21,6 +23,8 @@ const frequencyRange = {
 };
 
 const init = () => {
+    document.body.classList.add(classNameForLoading);
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x111111);
 
@@ -94,6 +98,8 @@ const initAudio = () => {
     const audioLoader = new THREE.AudioLoader();
     // https://www.newgrounds.com/audio/listen/232941
     audioLoader.load('asset/232941_New.MP3', (buffer) => {
+        document.body.classList.remove(classNameForLoading);
+
         audio.setBuffer(buffer);
         audio.setLoop(true);
         audio.setVolume(0.5);

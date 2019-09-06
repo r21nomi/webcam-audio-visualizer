@@ -14,6 +14,8 @@ const particleIndexArray = [];
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
+const classNameForLoading = "loading";
+
 let uniforms = {
     time: {
         type: 'f',
@@ -37,6 +39,8 @@ const frequencyRange = {
 };
 
 const init = () => {
+    document.body.classList.add(classNameForLoading);
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x2d40f8);
 
@@ -109,6 +113,8 @@ const initAudio = () => {
     const audioLoader = new THREE.AudioLoader();
     // https://www.newgrounds.com/audio/listen/872056
     audioLoader.load('asset/872056_Above-the-clouds.mp3', (buffer) => {
+        document.body.classList.remove(classNameForLoading);
+
         audio.setBuffer(buffer);
         audio.setLoop(true);
         audio.setVolume(0.5);
