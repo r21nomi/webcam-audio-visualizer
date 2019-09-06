@@ -2,7 +2,7 @@
 
 Demo for the tutorial on how to create a Three.js powered audio visualizer that takes input from the webcam.
 
-![Image Title](link)
+![Webcam Audio Visualizer](https://tympanus.net/codrops/wp-content/uploads/2019/08/WebcamAudioVisualizer_featured.png)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=42594)
 

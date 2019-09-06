@@ -8,6 +8,16 @@
     font-size: 15px;
 }
 
+body #cdawrap {
+    --cda-right: 2rem;
+    --cda-top: 2rem;
+}
+
+.demo-2 #cdawrap {
+    --cda-text-color: #fff;
+    --cda-sp-color: #fff;
+}
+
 body {
     --color-text: #9c814f;
     --color-bg: #111111;
@@ -101,7 +111,8 @@ a:focus {
 }
 
 .frame__links {
-    display: inline;
+    display: inline-block;
+    margin: 1rem 0;
 }
 
 .frame__info {
@@ -112,16 +123,6 @@ a:focus {
 
 .frame a {
     text-transform: lowercase;
-}
-
-.frame__github,
-.frame__links a:not(:last-child),
-.frame__demos a:not(:last-child) {
-    margin-right: 1rem;
-}
-
-.frame__demos {
-    margin: 1rem 0;
 }
 
 .frame a::before {
@@ -195,9 +196,9 @@ a:focus {
         display: flex;
         flex-direction: column-reverse;
         grid-area: links;
-        padding: 0;
         justify-self: start;
         align-self: end;
+        margin: 0;
     }
 
     .frame a {
